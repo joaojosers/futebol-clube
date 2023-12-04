@@ -7,15 +7,15 @@ export default class TeamService {
     private _teamModel = Team,
   ) {}
 
-  public async getAll(): Promise<Team[] | void> {
+  public async getAll(): Promise<Team[] > {
     const teams = await this._teamModel.findAll();
-    if (teams) return teams;
+    return teams;
   }
 
   public async getByPk(id: number): Promise<any> {
     const team = await this._teamModel.findByPk(id);
     console.log(team);
-    if (team) return team;
+    return team;
   }
 }
 //   findAll = async (): Promise<ITeam[] | void> => {

@@ -48,4 +48,3 @@ export default Team;
 // // Team.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
 // Team.hasMany(Match, { foreignKey: 'home_Team_id', as: 'homeTeam' });
 // Team.hasMany(Match, { foreignKey: 'away_Team_id', as: 'awayTeam' });
-
