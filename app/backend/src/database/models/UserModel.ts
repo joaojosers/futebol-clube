@@ -8,23 +8,48 @@ import {
 import db from '.';
 // import OtherModel from './OtherModel';
 
-class User extends Model<InferAttributes<User>,
-InferCreationAttributes<User>> {
+class UserModel extends Model<InferAttributes<UserModel>,
+InferCreationAttributes<UserModel>> {
   declare id: CreationOptional<number>;
+  declare username: string;
+  declare role: string;
+  declare email: string;
+  declare password: string;
 }
 
-User.init({
+UserModel.init({
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  role: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    // set(value: string) {
+    //   this.setDataValue('password', hashSync(value, 8));
+    // },
+  },
+
 }, {
   sequelize: db,
-  modelName: 'trybeEval',
+  modelName: 'users',
   timestamps: false,
 });
+export default UserModel;
 
 /**
     * `Workaround` para aplicar as associations em TS:
@@ -36,5 +61,3 @@ User.init({
 
 // User.hasMany(OtherModel, { foreignKey: 'campoC', as: 'campoEstrangeiroC' });
 // User.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
-
-export default User;
