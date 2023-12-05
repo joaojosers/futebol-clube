@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import UserModel from '../database/models/UserModel';
 import { User } from '../types/User';
-import JWT from '../utils/JWT';
+import JWT from '../utils/JWToken';
 
 async function authMiddleware(req: Request, res: Response, next: NextFunction): Promise<unknown> {
   const { authorization } = req.headers;
