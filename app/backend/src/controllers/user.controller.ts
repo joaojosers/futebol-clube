@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import UserService from '../services/user.service';
 
 export default class UserController {
@@ -6,16 +6,12 @@ export default class UserController {
     private _userService = new UserService(),
   ) {}
 
-  public async login(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { email, password } = req.body;
-      const token = await this._userService.login({ email, password });
+  public async login(req: Request, res: Response) {
+    const { email, password } = req.body;
+    const token = await this._userService.login({ email, password });
 
-      if (!token) return res.status(401).json({ message: 'Incorrect email or password' });
+    if (!token) return res.status(401).json({ message: 'Incorrect email or password' });
 
-      res.status(200).json({ token });
-    } catch (err) {
-      next(err);
-    }
+    return res.status(200).json({ token });
   }
 }

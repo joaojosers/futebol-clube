@@ -12,7 +12,7 @@ async function authMiddleware(req: Request, res: Response, next: NextFunction): 
   }
 
   try {
-    const secretKey = 'jwt_secret'; // Substitua pela sua chave secreta
+    const secretKey = process.env.JWT_SECRET || ''; // Substitua pela sua chave secreta
     const decoded = jwt.verify(authorization, secretKey) as unknown as User;
     const user = await UserModel.findOne({ where: { username: decoded.username } });
     if (!user) return res.status(401).json({ message: 'Token must be a valid token' });
