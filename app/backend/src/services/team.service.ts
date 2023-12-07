@@ -1,6 +1,4 @@
-// import ITeamService from '../Interfaces/ITeamService';
 import Team from '../database/models/TeamModel';
-// import ITeam from '../Interfaces/ITeam';
 
 export default class TeamService {
   constructor(
@@ -18,12 +16,3 @@ export default class TeamService {
     return team;
   }
 }
-//   findAll = async (): Promise<ITeam[] | void> => {
-//     const teams = await this._teamModel.findAll();
-//     if (teams) return teams;
-//   };
-
-//   findByPk = async (id: number): Promise<ITeam | void> => {
-//     const team = await this._teamModel.findByPk(id);
-//     if (team) return team;
-//   };

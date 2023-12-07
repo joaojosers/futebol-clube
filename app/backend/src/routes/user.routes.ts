@@ -2,11 +2,16 @@
 import { Request, Response, Router } from 'express';
 import UserController from '../controllers/user.controller';
 import LoginMiddleware from '../middlewares/loginMiddleware';
+// import authMiddleware from '../middlewares/authMiddleware';
 
 const controllerUser = new UserController();
 const route = Router();
 
 // Utilize o middleware diretamente na definição da rota
+route.get(
+  '/',
+  (req: Request, res: Response) => controllerUser.userRole(req, res),
+);
 route.post(
   '/',
   LoginMiddleware.validateLogin,

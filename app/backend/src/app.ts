@@ -18,6 +18,7 @@ class App {
     this.app.use('/teams', teamRoutes);
     // this.app.use('/teams/:id', teamRoutes);
     this.app.use('/login', userRoutes);
+    this.app.use('/login/role', userRoutes);
     // Não remova esse middleware de erro, mas fique a vontade para customizá-lo
     // Mantenha ele sempre como o último middleware a ser chamado
     this.app.use(errorMiddleware);
