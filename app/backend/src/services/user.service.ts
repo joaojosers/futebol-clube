@@ -1,6 +1,5 @@
 import * as bcrypt from 'bcryptjs';
 import * as jwt from 'jsonwebtoken';
-import { JwtPayload } from 'jsonwebtoken';
 import User from '../database/models/UserModel';
 import ILogin from '../Interfaces/ILogin';
 import IUserService from '../Interfaces/IUserService';
@@ -25,9 +24,9 @@ export default class UserService implements IUserService {
       const tokenRole = token.split(' ')[1];
 
       const decoded = jwt.verify(tokenRole, process.env.JWT_SECRET || '');
-
+      const { role } = decoded as jwt.JwtPayload;
       // const user = await this._userModel.findByPk(decoded['id'], { attributes: ['role'] });
-      return decoded.role as JwtPayload;
+      return role;
     } catch (error) {
       console.error(error);
       return undefined;
