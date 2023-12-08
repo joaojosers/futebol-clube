@@ -15,18 +15,18 @@ export default class UserController {
     return res.status(200).json({ token });
   }
 
-  public async userRole(req: Request, res: Response) {
+  public userRole(req: Request, res: Response) {
     const token = req.headers.authorization;
 
     if (!token) {
       return res.status(401).json({ message: 'Token not found' });
     }
 
-    const role = await this._userService.userRole(token);
+    const role = this._userService.userRole(token);
 
-    // if (role === undefined) {
-    //   return res.status(401).json({ message: 'Token must be a valid token' });
-    // }
+    if (role === undefined) {
+      return res.status(401).json({ message: 'Token must be a valid token' });
+    }
 
     return res.status(200).json({ role });
   }

@@ -1,6 +1,6 @@
 // /app/backend/src/routes/user.routes.ts
 import { Request, Response, Router } from 'express';
-import authMiddleware from '../middlewares/authMiddleware';
+// import authMiddleware from '../middlewares/authMiddleware';
 import UserController from '../controllers/user.controller';
 import LoginMiddleware from '../middlewares/loginMiddleware';
 // import authMiddleware from '../middlewares/authMiddleware';
@@ -11,7 +11,7 @@ const route = Router();
 // Utilize o middleware diretamente na definição da rota
 route.get(
   '/',
-  authMiddleware,
+  // authMiddleware,
   (req: Request, res: Response) => controllerUser.userRole(req, res),
 );
 route.post(
