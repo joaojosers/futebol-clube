@@ -6,3 +6,4 @@ export type MatchType = {
   awayTeamGoals: number,
   inProgress: boolean,
 };
+/*  */
