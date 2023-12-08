@@ -11,7 +11,6 @@ export default class TeamController {
 
   public async getAll(_req: Request, res: Response) {
     const serviceResponse = await this._teamService.getAll();
-    console.log('contoller', serviceResponse);
     res.status(200).json(serviceResponse);
   }
 

@@ -78,7 +78,7 @@ describe('Testes da rota /login', () => {
               });
 
       expect(response.status).to.be.equal(401);
-      expect(response.body).to.be.deep.equal({ message: 'Incorrect email or password' });
+      expect(response.body).to.be.deep.equal({ message: 'Invalid email or password' });
     });
 
     it('Usuário não informa senha válida', async () => {
@@ -91,7 +91,7 @@ describe('Testes da rota /login', () => {
               });
 
       expect(response.status).to.be.equal(401);
-      expect(response.body).to.be.deep.equal({ message: 'Incorrect email or password' });
+      expect(response.body).to.be.deep.equal({ message: 'Invalid email or password' });
     });
   });
 });

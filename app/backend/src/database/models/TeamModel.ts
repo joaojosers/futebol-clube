@@ -41,10 +41,10 @@ export default Team;
 
 // OtherModel.belongsTo(Team, { foreignKey: 'campoA', as: 'campoEstrangeiroA' });
 // OtherModel.belongsTo(Team, { foreignKey: 'campoB', as: 'campoEstrangeiroB' });
-// Match.belongsTo(Team, { foreignKey: 'home_Team_id', as: 'homeTeam' });
-// Match.belongsTo(Team, { foreignKey: 'away_Team_id', as: 'awayTeam' });
+// Match.belongsTo(Team, { foreignKey: 'homeTeamId', as: 'homeTeam' });
+// Match.belongsTo(Team, { foreignKey: 'awayTeamId', as: 'awayTeam' });
 
 // // Team.hasMany(OtherModel, { foreignKey: 'campoC', as: 'campoEstrangeiroC' });
 // // Team.hasMany(OtherModel, { foreignKey: 'campoD', as: 'campoEstrangeiroD' });
-// Team.hasMany(Match, { foreignKey: 'home_Team_id', as: 'homeTeam' });
-// Team.hasMany(Match, { foreignKey: 'away_Team_id', as: 'awayTeam' });
+// Team.hasMany(Match, { foreignKey: 'homeTeamId', as: 'homeTeam' });
+// Team.hasMany(Match, { foreignKey: 'awayTeamId', as: 'awayTeam' });

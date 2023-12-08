@@ -12,7 +12,6 @@ export default class TeamService {
 
   public async getByPk(id: number): Promise<Team | null > {
     const team = await this._teamModel.findByPk(id);
-    console.log(team);
     return team;
   }
 }
