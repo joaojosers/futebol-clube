@@ -15,6 +15,7 @@ export default class UserService implements IUserService {
     if (userExists && bcrypt.compareSync(password, userExists.password)) {
       const loginRole = userExists?.dataValues.role;
       const getRoleLogin = { ...login, role: loginRole };
+      console.log('UserService', tokenGenerate(getRoleLogin));
       return tokenGenerate(getRoleLogin);
     }
   };

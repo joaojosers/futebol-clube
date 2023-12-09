@@ -6,19 +6,20 @@ import { User } from '../types/User';
 
 async function authMiddleware(req: Request, res: Response, next: NextFunction): Promise<unknown> {
   const { authorization } = req.headers;
-
   if (!authorization) {
     return res.status(401).json({ message: 'Token not found' });
   }
 
   try {
     const secretKey = process.env.JWT_SECRET || ''; // Substitua pela sua chave secreta
-    const decoded = jwt.verify(authorization, secretKey) as unknown as User;
-    const user = await UserModel.findOne({ where: { username: decoded.username } });
+    const decoded = jwt.verify(authorization.split(' ')[1], secretKey) as unknown as User;
+    console.log('authMiddleware', decoded);
+    const user = await UserModel.findOne({ where: { email: decoded.email } });
     if (!user) return res.status(401).json({ message: 'Token must be a valid token' });
 
     next();
   } catch (e) {
+    // console.log('authMiddleware', e);
     return res.status(401).json({ message: 'Token must be a valid token' });
   }
 }
