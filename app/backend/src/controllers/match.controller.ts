@@ -30,7 +30,12 @@ export default class MatchController {
       return res.status(201).json(matchCreated);
     } catch (error) {
       console.error(error);
-      res.status(400).json({ message: (error as Error).message });
+      if ((error as Error)
+        .message === 'It is not possible to create a match with two equal teams') {
+        res.status(422).json({ message: (error as Error).message });
+      } else {
+        res.status(404).json({ message: (error as Error).message });
+      }
     }
   }
 }
