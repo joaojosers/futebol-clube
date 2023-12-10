@@ -10,7 +10,7 @@ import token from './mocks/token.mock';
 
 import { Response } from 'superagent';
 import * as jsonwebtoken from 'jsonwebtoken';
-
+import * as bcript from 'bcryptjs';
 chai.use(chaiHttp);
 
 // const { app } = new App();
@@ -27,7 +27,9 @@ describe('Testes da rota /login', () => {
     it('Verifica se usuário faz login com sucesso', async () => {
 
       sinon.stub(User, "findOne").resolves(mockUser as unknown as User);
+      sinon.stub(bcript, 'compareSync').returns(true);
       sinon.stub(jsonwebtoken, 'sign').resolves(token);
+
 
       const response = await chai
               .request(app)
