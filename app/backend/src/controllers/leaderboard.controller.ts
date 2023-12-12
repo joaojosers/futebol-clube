@@ -19,7 +19,7 @@ export default class LeaderboardController {
   public async getHomeMatches(req: Request, res: Response) {
     try {
       // const teamName = req.query.teamName as string;
-      const homeMatches = await this._leaderboardService.getHomeMatches();
+      const homeMatches = await this._leaderboardService.getHomeMatches;
       res.status(200).json(homeMatches);
     } catch (error) {
       console.error(error);

@@ -9,4 +9,6 @@ export type TeamStats = {
   totalLosses: number;
   goalsFavor: number;
   goalsOwn: number;
+  goalsBalance: number;
+  efficiency: number | string;
 };
