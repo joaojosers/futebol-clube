@@ -1,4 +1,4 @@
-# trybe-futebol-clube
+# futebol-clube
 
 ## Contexto
 - Este projeto visa desenvolver uma API (utilizando o método TDD) e também integrar - através do docker-compose - as aplicações para que elas funcionem consumindo um banco de dados.
